@@ -42,6 +42,10 @@
         <mapper resource="mapping\userMapping.xml"/>
         <!--        注册UserMapper接口-->
         <mapper class="mapping.UserMapperI"/>
+        <!--        注册orderxml-->
+        <mapper resource="mapping\orderMapper.xml"/>
+<!--        注册班级mapper-->
+        <mapper resource="mapping/classMapper.xml"/>
     </mappers>
 
 </configuration>

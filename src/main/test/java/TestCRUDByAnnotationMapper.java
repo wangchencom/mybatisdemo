@@ -77,5 +77,6 @@ public class TestCRUDByAnnotationMapper {
         sqlSession.close();
         System.out.println(lstUsers);
     }
+
 }
 
