@@ -6,6 +6,14 @@ package domain;
  */
 public class User {
 //	实体类的属性和表的字段名称一一对应
+
+	public User(int id, String name, int age) {
+		this.id = id;
+		this.name = name;
+		this.age = age;
+	}
+	public User(){}
+
 	private int id;
 	private String name;
 	private int age;

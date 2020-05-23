@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.List;
+
 /**
  * @author gacl
  * 定义class表对应的实体类
@@ -15,6 +17,17 @@ public class Classes {
      * 用于维护teacher和class之间的一对一关系，通过这个teacher属性就可以知道这个班级是由哪个老师负责的
      */
     private Teacher teacher;
+
+    //   使用list<Studwent集合表示班級所擁有的學生>
+    private List<Student> students;
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
 
     public int getId() {
         return id;

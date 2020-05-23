@@ -10,6 +10,13 @@
     resultType="me.gacl.domain.User"就表示将查询结果封装成一个User类的对象返回
     User类就是users表所对应的实体类
     -->
+    <!-- 开启二级缓存 -->
+<!--   <cache -->
+<!--    eviction="FIFO"  &lt;!&ndash;回收策略为先进先出&ndash;&gt;-->
+<!--    flushInterval="60000" &lt;!&ndash;自动刷新时间60s&ndash;&gt;-->
+<!--    size="512" &lt;!&ndash;最多缓存512个引用对象&ndash;&gt;-->
+<!--    readOnly="true"/> &lt;!&ndash;只读&ndash;&gt;-->
+    <cache/>
     <!-- 
         根据id查询得到一个user对象
      -->
@@ -34,5 +41,21 @@
     <select id="getAllUsers" resultType="domain.User">
     select * from users
     </select>
+
+    <!--
+        查询得到男性或女性的数量, 如果传入的是0就女性否则是男性
+     -->
+    <select id="getUserCount" parameterMap="getUserCountMap" statementType="CALLABLE">
+        CALL mybatis.ges_user_count(?,?)
+    </select>
+
+    <!--
+        parameterMap.put("sexid", 0);
+        parameterMap.put("usercount", -1);
+     -->
+    <parameterMap type="java.util.Map" id="getUserCountMap">
+        <parameter property="sexid" mode="IN" jdbcType="INTEGER"/>
+        <parameter property="usercount" mode="OUT" jdbcType="INTEGER"/>
+    </parameterMap>
 
 </mapper>
